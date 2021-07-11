@@ -12,6 +12,9 @@ h1,h2,h3,h4,h5{
   /* background-color: #0058AB; */
 
 }
+p,label,a,div,span{
+  font-size: 14px;
+}
 code {
   font-family: Noto_Sans, sans-serif;
 }

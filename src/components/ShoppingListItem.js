@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './ShoppingListItem.css'
 function ShoppingListItem(props){
-  const [name, setName] = useState(props.name);
+
+//   const [name, setName] = useState(props.name);
     return (
         <div className="list-item">
             <p>{props.name}</p>

@@ -22,6 +22,7 @@ const submitHandler = event =>{
     const itemEntered = {
         name: inputName,
         price: inputPrice,
+        id: Math.random().toString(),
         imgUlr:''
     }
     props.onSaveItemData(itemEntered);
@@ -34,7 +35,7 @@ const submitHandler = event =>{
         <div className="new-item-wrapper">
         <div className="new-item-container">
             <div className="new-item-content">
-                <label for="name">Name</label>
+                <label>Name</label>
                 <input type="text" id="name" value={inputName} onChange={nameChangeHandler}/>
             </div>
             <div className="new-item-content">
