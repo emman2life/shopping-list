@@ -12,15 +12,19 @@
 .new-item-wrapper{
     background-color: #FBD914;
     padding: 2rem;
+    width: 100%;
+    margin: auto;
 }
 .add-item-button-container{
 display: flex;
 justify-content: center;
-margin: 3rem;
+margin-top: 3rem;
 }
 .new-item-container{
 display: flex;
+flex-direction: column;
 justify-content: space-evenly;
+max-width: 300px;
 width: 80%;
 margin: auto;
 
