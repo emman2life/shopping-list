@@ -26,11 +26,11 @@ function App() {
               return(x.price-y.price);
           });
       }
-const listSorter = (list) => {
+const sortList = (list) => {
   sortBy === 'name' ? sortByName(list) : sortedByPrice(list);
   }
   
-  // localStorage.setItem('list', JSON.stringify(shoppingListItems));
+
   const storedList = localStorage.getItem('list');
 
   const localList = storedList ? JSON.parse(storedList):[];
@@ -39,7 +39,7 @@ const listSorter = (list) => {
 
   const [shoppingList, setShoppingList] = useState(localList); 
   if(shoppingList.length>0)
-  listSorter(shoppingList)
+  sortList(shoppingList)
 /*
 Update the sort name to be sort based on the button click value
 */
@@ -50,7 +50,7 @@ useEffect(()=>{
 
 useEffect(()=>{
   setShoppingList(prevListItems=>{
-    listSorter(prevListItems);
+    sortList(prevListItems);
     const newList = [...prevListItems];
     return newList;
   });
@@ -61,15 +61,22 @@ const sortByHandler = sortByString=>{
   console.log(sortBy);
 
 }
-  const addItemHandler = item =>{
-  // shoppingListItems.push(item);
+const updateList = (id, item) => {
+  const index = shoppingList.findIndex(item=>item.id===id);
+  const shopItem = {...item, acquired:true}
+  shoppingList[index] = shopItem;
+  setShoppingList(prevListItems=>{
+    sortList(prevListItems);
+    const newList = [...prevListItems];
+    return newList;
+  });
 
-  // setShoppingList(JSON.parse(localStorage.getItem('list')));
- 
+  
+}
+  const addItemHandler = item =>{
   setShoppingList((prevListItems)=>{
     const newList = [item, ...prevListItems];
-    listSorter(newList);
-    // localStorage.setItem('list', JSON.stringify(newList));
+    sortList(newList);
     return newList;
   });
   }; 
@@ -92,9 +99,7 @@ const welcomeText = <p>
 
     <ListFilter onSort={sortByHandler}/>
     <div className="list-wrapper">
-
-    
-  {shoppingList.length>0?<ShoppingList items={shoppingList}/>:welcomeText}
+  {shoppingList.length>0?<ShoppingList items={shoppingList} onComplete={updateList}/>:welcomeText}
 
    
     </div>

@@ -7,15 +7,16 @@ function ShoppingListItem(props){
 const [item, setItem] = useState(props);
 const [acquire, setAcquire] = useState('');
 
-useEffect(()=>{
-    setItem((prevState)=>{
-        return{...prevState, acquired:true}
-    })
-    console.log(item);
-},[acquire]);
+// useEffect(()=>{
+//     setItem((prevState)=>{
+//         return{...prevState, acquired:true}
+//     })
+//     console.log(item);
+// });
 
-const acquireHandler = (event)=> {
-       setAcquire(event.target.value);
+const acquireHandler = (shoppingItem)=> {
+   setItem({shoppingItem, acquired:true});
+   console.log(shoppingItem);
     
 }
     
@@ -23,7 +24,7 @@ const acquireHandler = (event)=> {
 
         <div className="list-item">
         <button value="acquire"  className="acquired-button"
-        onClick={acquireHandler}>
+        onClick={props.onUpdate}>
             <img src={plus}/></button>
           <p>{item.name}</p>
           <div className="item-price">
