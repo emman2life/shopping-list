@@ -7,11 +7,7 @@ import ListFilter from './components/Filter/ListFilter'
 
 
 function App() {
-  const shoppingListItems = [
-    {id:'i1', name: 'MALM', price: 449.99},
-    {id:'i2', name: 'ATTA', price: 239.99},
-    {id:'i3', name: 'BORD', price: 1299.99},
-  ]
+  
 
   const [sortBy, setSortBy] = useState('name');
 
@@ -35,13 +31,23 @@ const listSorter = (list) => {
   }
   
   // localStorage.setItem('list', JSON.stringify(shoppingListItems));
+  const storedList = localStorage.getItem('list');
 
-  // const localList = JSON.parse(localStorage.getItem('list'));
-  listSorter(shoppingListItems);
-  const [shoppingList, setShoppingList] = useState(shoppingListItems); 
+  const localList = storedList ? JSON.parse(storedList):[];
+
+
+
+  const [shoppingList, setShoppingList] = useState(localList); 
+  if(shoppingList.length>0)
+  listSorter(shoppingList)
 /*
 Update the sort name to be sort based on the button click value
 */
+useEffect(()=>{
+ localStorage.setItem('list', JSON.stringify(shoppingList));
+},[shoppingList]);
+
+
 useEffect(()=>{
   setShoppingList(prevListItems=>{
     listSorter(prevListItems);
@@ -68,7 +74,10 @@ const sortByHandler = sortByString=>{
   });
   }; 
 
+const welcomeText = <p>
+  Welcome to EIKA, thank for using this application. To add item to your shopping list, click the button “Add item” below.
 
+</p>;
 
   return (
     
@@ -85,7 +94,7 @@ const sortByHandler = sortByString=>{
     <div className="list-wrapper">
 
     
-   <ShoppingList items={shoppingList}/>
+  {shoppingList.length>0?<ShoppingList items={shoppingList}/>:welcomeText}
 
    
     </div>

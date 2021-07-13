@@ -23,7 +23,9 @@ const submitHandler = event =>{
         name: inputName,
         price: inputPrice,
         id: Math.random().toString(),
-        imgUlr:''
+        imgUlr:'',
+        acquired:false
+
     }
     props.onSaveItemData(itemEntered);
     setInputName('');
