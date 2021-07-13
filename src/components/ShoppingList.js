@@ -4,13 +4,16 @@ import ShoppingListItem from './ShoppingListItem';
 
 const ShoppingList = (props)=>{
 
+    const filteredList = props.items.filter((item)=>{
+        return item.acquired===false;
+    });
 
-
-    const list = props.items.map((item) =>(
+    const list = filteredList.map((item) =>(
         <ShoppingListItem
         key={item.id}
         name={item.name} 
-        price={item.price}/>
+        price={item.price}
+        acquired={item.acquired}/>
            ))
    return <div>
   {list}

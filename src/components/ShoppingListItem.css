@@ -24,6 +24,26 @@
     width: 100%;
     margin: 3rem auto;
 }
+.acquired-button{
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    /* width: 2rem;
+    height: 2rem; */
+    background-color: #C4C4C4;
+
+}
+.acquired-button:hover{
+    background-color: #0058AB;
+}
+
+
+
+  
+
+
+ 
+  
 @font-face {
     font-family:Noto_Sans_Bold;
     src: url(../assets/fonts/Noto_Sans/NotoSans-Bold.ttf);
