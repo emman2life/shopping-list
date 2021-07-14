@@ -104,6 +104,12 @@ const welcomeText = <p>
    
     </div>
    <NewItem onAddItem={addItemHandler}/>
+
+    <div className="complete">
+    <button className="view-complete">View completed items</button>
+    </div>
+
+
     </div>
     </div>
   );

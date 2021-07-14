@@ -22,15 +22,16 @@ margin-top: 3rem;
 }
 .new-item-container{
 display: flex;
-flex-direction: column;
+flex-direction: row;
 justify-content: space-evenly;
-max-width: 300px;
+max-width: 600px;
 width: 80%;
 margin: auto;
 
 }
-.new-item_content{
+.new-item-content{
     /* display: inline-block; */
+    margin: 0 1rem;
     width: 100%;
 }
 input {
@@ -42,4 +43,10 @@ input {
     border-radius: 4px;
     box-sizing: border-box;
     border-radius: 5;
+  }
+
+  @media screen and (max-width:600px) {
+    .new-item-container{
+        flex-direction: column;
+    }
   }
