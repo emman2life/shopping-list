@@ -17,4 +17,17 @@ h1{
     max-width: 1023px;
     margin: auto;
 }
+.view-complete{
+    background-color: transparent;
+    border: none;
+    color: #0058AB;
+    text-decoration: underline;
+    
+}
+.complete{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem;
+}
 
