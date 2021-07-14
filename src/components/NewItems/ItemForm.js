@@ -33,8 +33,11 @@ const submitHandler = event =>{
 
 }
 
-    return <form onSubmit={submitHandler}>
+    return <div className="form-container">
+  <button className="closeAdd" onClick={props.onCloseAdd}>X</button>
+  <form onSubmit={submitHandler}>
         <div className="new-item-wrapper">
+          
         <div className="new-item-container">
             <div className="new-item-content">
                 <label>Name</label>
@@ -48,13 +51,14 @@ const submitHandler = event =>{
                 value={inputPrice} 
                 onChange={priceChangeHandler}/>
             </div>
-            </div>
+            
             <div className="add-item-button-container">
-                 <button className="add-item">Add item</button>
+                 <button type="submit" className="add-item">Add item</button>
              </div>
-    
+             </div>
        
         </div>
     </form>
+    </div>
 };
 export default ItemForm;

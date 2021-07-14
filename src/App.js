@@ -38,6 +38,11 @@ const sortList = (list) => {
 
 
   const [shoppingList, setShoppingList] = useState(localList); 
+
+  const [listToView, setListToView]= useState('completed');
+
+  const [showForm, setShowForm]= useState(false);
+
   if(shoppingList.length>0)
   sortList(shoppingList)
 /*
@@ -79,12 +84,28 @@ const updateList = (id, item) => {
     sortList(newList);
     return newList;
   });
+  setShowForm(false);
   }; 
+  const showUncompleted = ()=>{
+    setListToView('completed');
+  }
+  const showCompleted = ()=>{
+    setListToView('uncompleted');
+  }
+  const showAddForm = ()=>{
+    setShowForm(true);
+  }
+  const closeAddForm = ()=>{
+    console.log('close');
+    setShowForm(false);
+  }
 
 const welcomeText = <p>
   Welcome to EIKA, thank for using this application. To add item to your shopping list, click the button “Add item” below.
 
 </p>;
+const uncompletedButton = <button className="view-complete" onClick={showUncompleted}>View items</button>
+const completedButton = <button className="view-complete" onClick={showCompleted}>View completed items</button>
 
   return (
     
@@ -99,17 +120,17 @@ const welcomeText = <p>
 
     <ListFilter onSort={sortByHandler}/>
     <div className="list-wrapper">
-  {shoppingList.length>0?<ShoppingList items={shoppingList} onComplete={updateList}/>:welcomeText}
+  {shoppingList.length>0?<ShoppingList items={shoppingList} viewStatus={listToView} onComplete={updateList}/>:welcomeText}
 
    
     </div>
-   <NewItem onAddItem={addItemHandler}/>
+    {showForm === true ?  <NewItem onAddItem={addItemHandler} onCloseAdd={()=>{closeAddForm()}}/>: <button onClick={showAddForm}>Add item</button>}
+  
 
     <div className="complete">
-    <button className="view-complete">View completed items</button>
+      {listToView==='uncompleted'? uncompletedButton : completedButton}
+    
     </div>
-
-
     </div>
     </div>
   );

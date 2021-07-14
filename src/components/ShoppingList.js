@@ -4,8 +4,10 @@ import ShoppingListItem from './ShoppingListItem';
 
 const ShoppingList = (props)=>{
 
+    const status = props.viewStatus==='uncompleted'? true: false;
     const filteredList = props.items.filter((item)=>{
-        return item.acquired===false;
+      
+        return item.acquired===status;
     });
 const itemUpdate = (item)=>{
     props.onComplete(item.id, item);
