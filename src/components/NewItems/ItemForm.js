@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ItemForm.css'
 
 const ItemForm = (props)=>{
 const [inputName, setInputName] = useState('');
 const [inputPrice, setInputPrice] = useState('');
+const [validInput, setValidInput] = useState(false);
 
 const nameChangeHandler = (event)=>{
         // setItemInput((prevState)=>{
@@ -16,6 +17,11 @@ const priceChangeHandler = (event) =>{
     // setItemInput({...itemInput, price: event.target.value});
     setInputPrice(event.target.value);
 }
+useEffect(()=>{
+    if(inputName!==''&& inputPrice!==''){
+        setValidInput(true);
+    }
+},[inputPrice, inputName])
 
 const submitHandler = event =>{
     event.preventDefault();
@@ -27,14 +33,16 @@ const submitHandler = event =>{
         acquired:false
 
     }
+
     props.onSaveItemData(itemEntered);
+    setValidInput(false);
     setInputName('');
     setInputPrice('');
 
 }
 
     return <div className="form-container">
-  <button className="closeAdd" onClick={props.onCloseAdd}>X</button>
+  <button className="closeAdd" onClick={props.onCloseAddForm}>X</button>
   <form onSubmit={submitHandler}>
         <div className="new-item-wrapper">
           
@@ -53,7 +61,7 @@ const submitHandler = event =>{
             </div>
             
             <div className="add-item-button-container">
-                 <button type="submit" className="add-item">Add item</button>
+                 {validInput?<button type="submit" className="add-item" disabled="false">Add</button>:''}
              </div>
              </div>
        
