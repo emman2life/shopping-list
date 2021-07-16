@@ -50,12 +50,13 @@ Update the sort name to be sort based on the button click value
 */
 useEffect(()=>{
  localStorage.setItem('list', JSON.stringify(shoppingList));
+ sortList(shoppingList);
 },[shoppingList]);
 
 
 useEffect(()=>{
   setShoppingList(prevListItems=>{
-    sortList(prevListItems);
+    // sortList(prevListItems);
     const newList = [...prevListItems];
     return newList;
   });
@@ -63,7 +64,7 @@ useEffect(()=>{
 const sortByHandler = sortByString=>{
 
   setSortBy(sortByString);
-  console.log(sortBy);
+  // console.log(sortBy);
 
 }
 const updateList = (id, item) => {
@@ -71,7 +72,7 @@ const updateList = (id, item) => {
   const shopItem = {...item, acquired:true}
   shoppingList[index] = shopItem;
   setShoppingList(prevListItems=>{
-    sortList(prevListItems);
+    // sortList(prevListItems);
     const newList = [...prevListItems];
     return newList;
   });
@@ -81,7 +82,7 @@ const updateList = (id, item) => {
   const addItemHandler = item =>{
   setShoppingList((prevListItems)=>{
     const newList = [item, ...prevListItems];
-    sortList(newList);
+    // sortList(newList);
     return newList;
   });
   setShowForm(false);
@@ -96,11 +97,10 @@ const updateList = (id, item) => {
     setShowForm(true);
   }
   const closeAddForm = ()=>{
-    console.log('close');
     setShowForm(false);
   }
 
-const welcomeText = <p>
+const welcomeText = <p className="welcome">
   Welcome to EIKA, thank for using this application. To add item to your shopping list, click the button “Add item” below.
 
 </p>;
@@ -118,15 +118,21 @@ const completedButton = <button className="view-complete" onClick={showCompleted
      
     <h1>Shopping List</h1>
 
-    <ListFilter onSort={sortByHandler}/>
-    <div className="list-wrapper">
-  {shoppingList.length>0?<ShoppingList items={shoppingList} viewStatus={listToView} onComplete={updateList}/>:welcomeText}
-
-   
-    </div>
-    {showForm === true ?  <NewItem onAddItem={addItemHandler} onCloseAdd={()=>{closeAddForm()}}/>: <button onClick={showAddForm}>Add item</button>}
+ 
   
+  {shoppingList.length>0?
+    <div> <ListFilter onSort={sortByHandler}/>
+  <ShoppingList items={shoppingList} viewStatus={listToView} onComplete={updateList}/>
+  </div>:
+  welcomeText}
 
+ 
+  
+    {showForm === true ?
+    <NewItem onAddItem={addItemHandler} onCloseAdd={closeAddForm}/>:
+      <div className="add-item-button-wrapper"> <button onClick={showAddForm}>Add item</button></div>}
+  
+    
     <div className="complete">
       {listToView==='uncompleted'? uncompletedButton : completedButton}
     

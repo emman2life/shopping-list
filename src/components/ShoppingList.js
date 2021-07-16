@@ -21,7 +21,7 @@ const itemUpdate = (item)=>{
         acquired={item.acquired}
         onUpdate={()=>{itemUpdate(item)}}/>
            ))
-   return <div>
+   return   <div className="list-wrapper">
   {list}
     
    </div>

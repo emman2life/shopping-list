@@ -9,10 +9,11 @@ const saveEnteredItemHandler = (enteredItemData)=>{
         // // id: Math.random().toString()
     };
     props.onAddItem(itemData);
+    
 }
 
 return <div>
-    <ItemForm onSaveItemData={saveEnteredItemHandler}/>
+    <ItemForm onSaveItemData={saveEnteredItemHandler} onCloseAddForm={props.onCloseAdd}/>
 </div>
 };
 export default NewItem;
