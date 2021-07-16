@@ -61,7 +61,7 @@ const submitHandler = event =>{
             </div>
             
             <div className="add-item-button-container">
-                 {validInput?<button type="submit" className="add-item" disabled="false">Add</button>:''}
+                 {validInput?<button type="submit" className="add-item btn">Add</button>:''}
              </div>
              </div>
        

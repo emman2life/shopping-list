@@ -130,7 +130,7 @@ const completedButton = <button className="view-complete" onClick={showCompleted
   
     {showForm === true ?
     <NewItem onAddItem={addItemHandler} onCloseAdd={closeAddForm}/>:
-      <div className="add-item-button-wrapper"> <button onClick={showAddForm}>Add item</button></div>}
+      <div className="add-item-button-wrapper"> <button className="btn" onClick={showAddForm}>Add item</button></div>}
   
     
     <div className="complete">
