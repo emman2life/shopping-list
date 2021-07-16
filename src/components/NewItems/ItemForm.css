@@ -1,13 +1,5 @@
 .add-item{
-    background-color: #0058AB;
-    min-width: 5rem;
-    color: #ffff;
-    font-family: Noto_Sans_Bold;
-    padding: 7px;
-    border-radius: 5px;
-    border: none;
-    
-    margin: auto;
+
 }
 .form-container{
     background-color: #0058ab9e;

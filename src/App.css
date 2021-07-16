@@ -40,12 +40,20 @@ h1{
     padding: 2rem;
 }
 .add-item-button-wrapper button{
+  
+}
+.btn{
+    background-color: #0058AB;
     background-color: #0058AB;
     min-width: 5rem;
     color: #ffff;
-    padding: 7px;
-    border-radius: 5px;
+    font-family: Noto_Sans_Bold;
+    border-radius: 64px;
     border: none;
+    height: 3.5rem;
+    padding: 0 2rem;
+    width: 100%;
+    margin: auto;
     cursor: pointer;
 }
 
