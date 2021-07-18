@@ -7,20 +7,21 @@ const [inputPrice, setInputPrice] = useState('');
 const [validInput, setValidInput] = useState(false);
 
 const nameChangeHandler = (event)=>{
-        // setItemInput((prevState)=>{
-        //    return {...prevState, name: event.target.value}
-        // });
+ 
         setInputName(event.target.value);
     }
 
 const priceChangeHandler = (event) =>{
-    // setItemInput({...itemInput, price: event.target.value});
     setInputPrice(event.target.value);
 }
 useEffect(()=>{
-    if(inputName!==''&& inputPrice!==''){
+    if(inputName.trim()>0 || inputPrice.trim()>0){
         setValidInput(true);
+    }else{
+        setValidInput(false);
     }
+
+    if(+inputPrice<0)return;
 },[inputPrice, inputName])
 
 const submitHandler = event =>{
@@ -48,12 +49,16 @@ const submitHandler = event =>{
           
         <div className="new-item-container">
             <div className="new-item-content">
-                <label>Name</label>
-                <input type="text" id="name" value={inputName} onChange={nameChangeHandler}/>
+                <label htmlFor="name">Name</label>
+                <input type="text" 
+                id="name" 
+                value={inputName}
+                onChange={nameChangeHandler}/>
             </div>
             <div className="new-item-content">
-                <label>Price</label>
-                <input 
+                <label htmlFor="price">Price</label>
+                <input
+                id="price" 
                 type="number" 
                 min="0.01" step="0.01"
                 value={inputPrice} 

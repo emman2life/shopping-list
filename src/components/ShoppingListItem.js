@@ -10,7 +10,7 @@ useEffect(()=>{
     setItem((prevState)=>{
         return{...prevState, acquired:acquire}
     })
-},[]);
+},[acquire]);
 
 const acquireHandler = (shoppingItem)=> {
  
