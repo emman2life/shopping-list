@@ -1,17 +1,36 @@
-
+import { useEffect, useState } from 'react';
 import './ShoppingListItem.css';
-import plus from '../assets/images/plus-icon/1x/outline_add_black_24dp.png'
 
 function ShoppingListItem(props){
+
+const [item, setItem] = useState(props);
+const [acquire, setAcquire] = useState(props.acquired);
+
+useEffect(()=>{
+    setItem((prevState)=>{
+        return{...prevState, acquired:acquire}
+    })
+},[]);
+
+const acquireHandler = (shoppingItem)=> {
+ 
+   setItem(shoppingItem);
+   props.onUpdate(item);
+    
+}
+    
     return (
 
         <div className="list-item">
-        <button value="acquire"  className="acquired-button"
-        onClick={props.onUpdate}>
-            <img src={plus} alt="plus-icon"/></button>
-          <p>{props.name}</p>
+
+            <input type="checkbox"
+            checked={acquire}
+            onChange={()=>{acquireHandler(item)}}
+            className="acquired-button"
+            />
+          <p>{item.name}</p>
           <div className="item-price">
-              <span>{props.price}</span>
+              <span>{item.price}</span>
               <span>:-</span>
               </div>
       </div>

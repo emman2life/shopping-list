@@ -37,6 +37,15 @@
     background-color: #C4C4C4;
 
 }
+.acquired-checkbox{
+  
+    border: none;
+    cursor: pointer;
+
+}
+input[type="checkbox"]{
+    width: auto;
+}
 .acquired-button:hover{
     background-color: #0058AB;
 }
