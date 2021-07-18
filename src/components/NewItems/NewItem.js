@@ -1,5 +1,6 @@
 import './NewItem.css';
 import ItemForm from './ItemForm';
+import Wrapper from '../Helpers/Wrappers';
 
 const NewItem = (props) => {
 
@@ -12,8 +13,8 @@ const saveEnteredItemHandler = (enteredItemData)=>{
     
 }
 
-return <div>
+return <Wrapper>
     <ItemForm onSaveItemData={saveEnteredItemHandler} onCloseAddForm={props.onCloseAdd}/>
-</div>
+</Wrapper>
 };
 export default NewItem;

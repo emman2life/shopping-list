@@ -1,4 +1,4 @@
-import './ListFilter.css'
+import './ListSort.css'
 function ListFilter(props){
 const sortHandler = (event) =>{
     props.onSort(event.target.value);
