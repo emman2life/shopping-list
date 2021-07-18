@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ddd913c2.chunk.css",
+    "main.js": "/static/js/main.cec230e2.chunk.js",
+    "main.js.map": "/static/js/main.cec230e2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.315ab184.js",
+    "runtime-main.js.map": "/static/js/runtime-main.315ab184.js.map",
+    "static/js/2.24281d39.chunk.js": "/static/js/2.24281d39.chunk.js",
+    "static/js/2.24281d39.chunk.js.map": "/static/js/2.24281d39.chunk.js.map",
+    "static/js/3.f0858bef.chunk.js": "/static/js/3.f0858bef.chunk.js",
+    "static/js/3.f0858bef.chunk.js.map": "/static/js/3.f0858bef.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.ddd913c2.chunk.css.map": "/static/css/main.ddd913c2.chunk.css.map",
+    "static/js/2.24281d39.chunk.js.LICENSE.txt": "/static/js/2.24281d39.chunk.js.LICENSE.txt",
+    "static/media/ShoppingListItem.css": "/static/media/NotoSans-Bold.66ab2974.ttf",
+    "static/media/index.css": "/static/media/NotoSans-Regular.fa11626f.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.315ab184.js",
+    "static/js/2.24281d39.chunk.js",
+    "static/css/main.ddd913c2.chunk.css",
+    "static/js/main.cec230e2.chunk.js"
+  ]
+}
