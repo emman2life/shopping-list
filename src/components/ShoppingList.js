@@ -22,7 +22,7 @@ const itemUpdate = (item)=>{
         onUpdate={()=>{itemUpdate(item)}}/>
            ))
    return   <div className="list-wrapper">
-  {list}
+  {list.length>0?list:"Nothing to show"}
     
    </div>
 

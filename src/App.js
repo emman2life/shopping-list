@@ -75,6 +75,7 @@ Update the sort name to be sort based on the button click value
  
       return newList;
     });
+    setListToView("completed");
     setShowForm(false);
   };
   const showUncompleted = () => {
@@ -117,7 +118,7 @@ Update the sort name to be sort based on the button click value
         <h1>Shopping List</h1>
         {shoppingList.length > 0 ? (
           <div>
-            {" "}
+        
             <ListSort onSort={sortByHandler} />
             <ShoppingList
               items={shoppingList}
@@ -135,7 +136,7 @@ Update the sort name to be sort based on the button click value
           
         ) : (
           <div className="add-item-button-wrapper">
-            {" "}
+
             <button className="btn" onClick={showAddForm}>
               Add item
             </button>
